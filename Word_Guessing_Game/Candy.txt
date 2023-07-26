@@ -1,10 +1,8 @@
 ﻿Almond Joy
 Abba Zabba
-A&W Root Beer Barrels
 Baby Ruth
 Bubblegum
 Butterfinger
-Crispy M&Ms
 Dots
 Duds
 Everlasting Gobstopper
@@ -12,7 +10,7 @@ EclipseGum
 Ferrero Rocher
 Gummy Bears
 Haribo Goldbears
-Hershey’s Kisses
+Hersheys Kisses
 Ice Breakers Mints
 Jolly Ranchers
 Kit Kat
@@ -21,10 +19,10 @@ Milky Way
 Nerds
 Orbit Gum
 PayDay
-Oh Henry!
+Oh Henry
 Pez Candy
 Quenchers Candy
-Reese’s Pieces
+Reeses Pieces
 Skittles
 Twix
 Unicorn Poop Candy
