@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Word_Guessing_Game;
 
 /*Create Word Guessing Game: 
  * Load from text file (Allows for different words, ex: sports list, health list, school list)
@@ -9,30 +10,28 @@
 
 
 //load data from list for a word
-//Note to self: Create dictionary add method that adds a text file to dictionary based on user input
-List<String> dictionary = new List<String>();
-using (StreamReader file = new StreamReader(@"C:\Users\aebud\source\repos\Word_Guessing_Game\Word_Guessing_Game\Candy.txt"))
+//create instance of Game class to create necessary variables, initialize them
+
+Game hello = new Game();
+Console.WriteLine(hello.correct);
+Console.WriteLine(hello.guesses);
+Console.WriteLine(hello.userInput);
+for(int i = 0; i< hello.dictionary.Count; i++)
 {
-    //Read data till file ends and add it to the dictionary, convert it so that the info has no spaces and is lowercased
-    //DO NOT CHANGE FILES DIRECTLY FOR EFFICIENCY: Accounts for new text files to be formatted with uppercase and spaces
-    while (!file.EndOfStream)
-    {
-        dictionary.Add((file.ReadLine().ToLower().Replace(" ", "")));
-    }
+    Console.WriteLine(hello.dictionary[i]);
 }
+
+
+
+
+
 
 //Note to self: Could create random method for beginning, not necessary
     //set up randomness
     Random rnd = new Random();
-int indexList = rnd.Next(1, dictionary.Count());
-
-//Note to self: Constructor?
-//set up variables for loop. user's word, program's word, bool for loop, number of guesses
+int indexList = rnd.Next(1, hello.dictionary.Count()); 
+String answer= hello.dictionary[indexList];
 Console.WriteLine(indexList);
-String answer = dictionary[indexList];
-String? userInput = "";
-bool correct =  false;
-int guesses = 0;
 
 
 //Note to self: While method, loop the method in Program.cs or method itself, either works
@@ -42,14 +41,14 @@ do
 
     //get input from user, format it so that the string is lowercased and has no spaces
     Console.WriteLine("Guess a Word: ");
-    userInput = (Console.ReadLine().ToLower()).Replace(" ", "");
+    hello.userInput = (Console.ReadLine().ToLower()).Replace(" ", "");
 
 
 
-    if (userInput == answer)
+    if (hello.userInput == answer)
     {
         Console.WriteLine("You guessed correctly, congrats!");
-        correct = true;
+        hello.correct = true;
     }
 
 
@@ -58,10 +57,10 @@ do
 
 
         //their answer was "higher", tell them that
-        if (String.Compare(userInput, answer) > 0)
+        if (String.Compare(hello.userInput, answer) > 0)
         {
             Console.WriteLine("Too far, try earlier in the alphabet.");
-            guesses++;
+            hello.guesses++;
         }
 
 
@@ -70,14 +69,10 @@ do
         else
         {
             Console.WriteLine("Too early, try farther in the alphabet.");
-            guesses++;
+            hello.guesses++;
         }
 
     }
 
-
-
-
-
-}while (!correct);
+}while (!hello.correct);
 
