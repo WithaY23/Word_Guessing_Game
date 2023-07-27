@@ -15,7 +15,7 @@ using Word_Guessing_Game;
 Game hello = new Game();
 Console.WriteLine(hello.correct);
 Console.WriteLine(hello.guesses);
-Console.WriteLine(hello.userInput);
+Console.WriteLine(hello.userText);
 for(int i = 0; i< hello.dictionary.Count; i++)
 {
     Console.WriteLine(hello.dictionary[i]);
@@ -23,12 +23,11 @@ for(int i = 0; i< hello.dictionary.Count; i++)
 
 
 
-
-
-
 //Note to self: Could create random method for beginning, not necessary
-    //set up randomness
-    Random rnd = new Random();
+//Note to self: In future, create "wordGenerator" function to get random word, can move most of the project from Program.cs to Game.cs
+    
+//set up randomness
+Random rnd = new Random();
 int indexList = rnd.Next(1, hello.dictionary.Count()); 
 String answer= hello.dictionary[indexList];
 Console.WriteLine(indexList);
@@ -41,13 +40,13 @@ do
 
     //get input from user, format it so that the string is lowercased and has no spaces
     Console.WriteLine("Guess a Word: ");
-    hello.userInput = (Console.ReadLine().ToLower()).Replace(" ", "");
+    hello.userText = (Console.ReadLine().ToLower()).Replace(" ", "");
 
 
 
-    if (hello.userInput == answer)
+    if (hello.userText == answer)
     {
-        Console.WriteLine("You guessed correctly, congrats!");
+        Console.WriteLine("You guessed correctly after " + hello.guesses + " attempts, congrats!");
         hello.correct = true;
     }
 
@@ -57,7 +56,7 @@ do
 
 
         //their answer was "higher", tell them that
-        if (String.Compare(hello.userInput, answer) > 0)
+        if (String.Compare(hello.userText, answer) > 0)
         {
             Console.WriteLine("Too far, try earlier in the alphabet.");
             hello.guesses++;
